@@ -41,12 +41,31 @@ namespace Chat_app_Server
                 MessageBox.Show("No network adapters with an IPv4 address in the system!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            txtIP.Text = IP;
-            txtPort.Text = "2009";
+            txtIP.Text = null;
+            txtPort.Text = "8800";
 
             userInitialize();
         }
 
+        //Find ID
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String IP = null;
+            var host = Dns.GetHostByName(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.ToString().Contains('.'))
+                {
+                    IP = ip.ToString();
+                }
+            }
+            if (IP == null)
+            {
+                MessageBox.Show("No network adapters with an IPv4 address in the system!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            txtIP.Text = IP;
+        }
         private void userInitialize()
         {
             USER = new Dictionary<String, String>();
@@ -77,6 +96,14 @@ namespace Chat_app_Server
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // Check if IP address is provided
+            if (string.IsNullOrEmpty(txtIP.Text))
+            {
+                MessageBox.Show("Please supply an IP address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Proceed with creating IPEndPoint if IP is provided
             iep = new IPEndPoint(IPAddress.Parse(txtIP.Text), int.Parse(txtPort.Text));
             server = new TcpListener(iep);
             server.Start();
@@ -85,6 +112,7 @@ namespace Chat_app_Server
             ServerThread.IsBackground = true;
             ServerThread.Start();
         }
+
 
         private void ServerStart()
         {
@@ -214,8 +242,8 @@ namespace Chat_app_Server
 
                 CLIENT.Remove(account.userName);
                 CLIENT.Add(account.userName, client);
-                
-                foreach(String key in CLIENT.Keys)
+
+                foreach (String key in CLIENT.Keys)
                 {
                     startupClient(CLIENT[key], key);
                 }
@@ -399,6 +427,25 @@ namespace Chat_app_Server
             }
             active = false;
             Environment.Exit(0);
+        }
+
+        private void FindID_Click(object sender, EventArgs e)
+        {
+            String IP = null;
+            var host = Dns.GetHostByName(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.ToString().Contains('.'))
+                {
+                    IP = ip.ToString();
+                }
+            }
+            if (IP == null)
+            {
+                MessageBox.Show("No network adapters with an IPv4 address in the system!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            txtIP.Text = IP;
         }
     }
 }

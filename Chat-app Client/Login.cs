@@ -23,7 +23,7 @@ namespace Chat_app_Client
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtLoginPassword.Text == "" || txtLoginIP.Text == "" || txtLoginUsername.Text == "")
+            if (txtLoginPassword.Text == "" || txtLoginIP.Text == "" || txtLoginUsername.Text == "" || txtLoginPort.Text == "")
             {
                 MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -31,7 +31,7 @@ namespace Chat_app_Client
 
             try
             {
-                ipe = new IPEndPoint(IPAddress.Parse(txtLoginIP.Text), 2009);
+                ipe = new IPEndPoint(IPAddress.Parse(txtLoginIP.Text), int.Parse(txtLoginPort.Text));
                 server = new TcpClient();
 
                 server.Connect(ipe);
@@ -46,8 +46,8 @@ namespace Chat_app_Client
             }
             catch
             {
-                MessageBox.Show("Cannot connect to server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+                MessageBox.Show("Error: 'You have not registered yet' or 'Server not working' or 'Entering wrong fields' . Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void waitForLoginFeedback()
@@ -104,6 +104,11 @@ namespace Chat_app_Client
         {
             new Thread(() => Application.Run(new Signin())).Start();
             this.Close();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

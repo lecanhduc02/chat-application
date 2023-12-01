@@ -28,278 +28,232 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStart = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtIP = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSignin = new System.Windows.Forms.Button();
-            this.lblSignin = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSigninPassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSigninUsername = new System.Windows.Forms.TextBox();
-            this.txtSigninIP = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStart.ForeColor = System.Drawing.Color.Maroon;
-            this.btnStart.Location = new System.Drawing.Point(23, 356);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(324, 36);
-            this.btnStart.TabIndex = 14;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(88, 415);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(195, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Don’t have an account?";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(23, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 23);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Password";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(23, 290);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(324, 35);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.UseSystemPasswordChar = true;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signin));
+            label3 = new Label();
+            textBox1 = new TextBox();
+            txtIP = new TextBox();
+            label2 = new Label();
+            btnSignin = new Button();
+            lblSignin = new Label();
+            label7 = new Label();
+            txtSigninPassword = new TextBox();
+            label8 = new Label();
+            txtSigninUsername = new TextBox();
+            txtSigninIP = new TextBox();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            txtSigninPort = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(23, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 23);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Username";
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(23, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 23);
+            label3.TabIndex = 13;
+            label3.Text = "Username";
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(23, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(324, 35);
-            this.textBox1.TabIndex = 2;
+            textBox1.Enabled = false;
+            textBox1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(23, 211);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(324, 35);
+            textBox1.TabIndex = 2;
             // 
             // txtIP
             // 
-            this.txtIP.Enabled = false;
-            this.txtIP.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIP.Location = new System.Drawing.Point(23, 132);
-            this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(324, 35);
-            this.txtIP.TabIndex = 3;
+            txtIP.Enabled = false;
+            txtIP.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIP.Location = new Point(23, 132);
+            txtIP.Name = "txtIP";
+            txtIP.Size = new Size(324, 35);
+            txtIP.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(23, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Server IP";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(140, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 31);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Signin";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(46, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 43);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Server Chat-app";
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(23, 102);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 23);
+            label2.TabIndex = 14;
+            label2.Text = "Server IP";
             // 
             // btnSignin
             // 
-            this.btnSignin.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignin.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSignin.ForeColor = System.Drawing.Color.Maroon;
-            this.btnSignin.Location = new System.Drawing.Point(23, 352);
-            this.btnSignin.Name = "btnSignin";
-            this.btnSignin.Size = new System.Drawing.Size(324, 46);
-            this.btnSignin.TabIndex = 4;
-            this.btnSignin.Text = "Signin";
-            this.btnSignin.UseVisualStyleBackColor = false;
-            this.btnSignin.Click += new System.EventHandler(this.btnSignin_Click);
+            btnSignin.BackColor = Color.MediumPurple;
+            btnSignin.FlatStyle = FlatStyle.Flat;
+            btnSignin.Font = new Font("Times New Roman", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSignin.ForeColor = Color.Black;
+            btnSignin.Location = new Point(195, 276);
+            btnSignin.Name = "btnSignin";
+            btnSignin.Size = new Size(324, 46);
+            btnSignin.TabIndex = 4;
+            btnSignin.Text = "Sign in";
+            btnSignin.UseVisualStyleBackColor = false;
+            btnSignin.Click += btnSignin_Click;
             // 
             // lblSignin
             // 
-            this.lblSignin.AutoSize = true;
-            this.lblSignin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSignin.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblSignin.Location = new System.Drawing.Point(88, 415);
-            this.lblSignin.Name = "lblSignin";
-            this.lblSignin.Size = new System.Drawing.Size(209, 21);
-            this.lblSignin.TabIndex = 5;
-            this.lblSignin.Text = "Already have an account?";
-            this.lblSignin.Click += new System.EventHandler(this.lblSignin_Click);
+            lblSignin.AutoSize = true;
+            lblSignin.Cursor = Cursors.Hand;
+            lblSignin.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point);
+            lblSignin.ForeColor = SystemColors.MenuHighlight;
+            lblSignin.Location = new Point(265, 342);
+            lblSignin.Name = "lblSignin";
+            lblSignin.Size = new Size(209, 21);
+            lblSignin.TabIndex = 5;
+            lblSignin.Text = "Already have an account?";
+            lblSignin.Click += lblSignin_Click;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(23, 260);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 23);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Password";
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(381, 185);
+            label7.Name = "label7";
+            label7.Size = new Size(93, 23);
+            label7.TabIndex = 22;
+            label7.Text = "Password";
             // 
             // txtSigninPassword
             // 
-            this.txtSigninPassword.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSigninPassword.Location = new System.Drawing.Point(23, 290);
-            this.txtSigninPassword.Name = "txtSigninPassword";
-            this.txtSigninPassword.Size = new System.Drawing.Size(324, 35);
-            this.txtSigninPassword.TabIndex = 3;
-            this.txtSigninPassword.UseSystemPasswordChar = true;
+            txtSigninPassword.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSigninPassword.Location = new Point(381, 211);
+            txtSigninPassword.Name = "txtSigninPassword";
+            txtSigninPassword.Size = new Size(324, 35);
+            txtSigninPassword.TabIndex = 3;
+            txtSigninPassword.UseSystemPasswordChar = true;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(23, 181);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 23);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Username";
+            label8.AutoSize = true;
+            label8.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.Location = new Point(23, 181);
+            label8.Name = "label8";
+            label8.Size = new Size(96, 23);
+            label8.TabIndex = 23;
+            label8.Text = "Username";
             // 
             // txtSigninUsername
             // 
-            this.txtSigninUsername.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSigninUsername.Location = new System.Drawing.Point(23, 211);
-            this.txtSigninUsername.Name = "txtSigninUsername";
-            this.txtSigninUsername.Size = new System.Drawing.Size(324, 35);
-            this.txtSigninUsername.TabIndex = 1;
+            txtSigninUsername.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSigninUsername.Location = new Point(23, 211);
+            txtSigninUsername.Name = "txtSigninUsername";
+            txtSigninUsername.Size = new Size(324, 35);
+            txtSigninUsername.TabIndex = 1;
             // 
             // txtSigninIP
             // 
-            this.txtSigninIP.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSigninIP.Location = new System.Drawing.Point(23, 132);
-            this.txtSigninIP.Name = "txtSigninIP";
-            this.txtSigninIP.Size = new System.Drawing.Size(324, 35);
-            this.txtSigninIP.TabIndex = 0;
+            txtSigninIP.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSigninIP.Location = new Point(23, 132);
+            txtSigninIP.Name = "txtSigninIP";
+            txtSigninIP.Size = new Size(324, 35);
+            txtSigninIP.TabIndex = 0;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(23, 102);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 23);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Server IP";
+            label9.AutoSize = true;
+            label9.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label9.Location = new Point(23, 102);
+            label9.Name = "label9";
+            label9.Size = new Size(89, 23);
+            label9.TabIndex = 24;
+            label9.Text = "Server IP";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.Maroon;
-            this.label10.Location = new System.Drawing.Point(140, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 31);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Signin";
+            label10.AutoSize = true;
+            label10.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label10.ForeColor = Color.DarkBlue;
+            label10.Location = new Point(318, 58);
+            label10.Name = "label10";
+            label10.Size = new Size(96, 31);
+            label10.TabIndex = 19;
+            label10.Text = "Sign in";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.Maroon;
-            this.label11.Location = new System.Drawing.Point(46, 15);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(264, 43);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Client Chat-app";
+            label11.AutoSize = true;
+            label11.Font = new Font("Times New Roman", 27.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label11.ForeColor = Color.Purple;
+            label11.Location = new Point(229, 15);
+            label11.Name = "label11";
+            label11.Size = new Size(290, 43);
+            label11.TabIndex = 20;
+            label11.Text = "Chat App (Client)";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(69, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(98, 61);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 15.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(381, 102);
+            label1.Name = "label1";
+            label1.Size = new Size(107, 23);
+            label1.TabIndex = 27;
+            label1.Text = "Server Port";
+            // 
+            // txtSigninPort
+            // 
+            txtSigninPort.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSigninPort.Location = new Point(381, 132);
+            txtSigninPort.Name = "txtSigninPort";
+            txtSigninPort.Size = new Size(324, 35);
+            txtSigninPort.TabIndex = 28;
             // 
             // Signin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 450);
-            this.Controls.Add(this.btnSignin);
-            this.Controls.Add(this.lblSignin);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtSigninPassword);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtSigninUsername);
-            this.Controls.Add(this.txtSigninIP);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtIP);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label1);
-            this.Name = "Signin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Signin";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(729, 429);
+            Controls.Add(txtSigninPort);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnSignin);
+            Controls.Add(lblSignin);
+            Controls.Add(label7);
+            Controls.Add(txtSigninPassword);
+            Controls.Add(label8);
+            Controls.Add(txtSigninUsername);
+            Controls.Add(txtSigninIP);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(label11);
+            Controls.Add(label3);
+            Controls.Add(textBox1);
+            Controls.Add(txtIP);
+            Controls.Add(label2);
+            Name = "Signin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Signin";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button btnStart;
-        private Label label5;
-        private Label label4;
-        private TextBox textBox2;
         private Label label3;
         private TextBox textBox1;
         private TextBox txtIP;
         private Label label2;
-        private Label label6;
         private Label label1;
         private Button btnSignin;
         private Label lblSignin;
@@ -311,5 +265,8 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private PictureBox pictureBox1;
+        private TextBox textBox2;
+        private TextBox txtSigninPort;
     }
 }

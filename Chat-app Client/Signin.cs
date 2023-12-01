@@ -29,24 +29,31 @@ namespace Chat_app_Client
 
         private void btnSignin_Click(object sender, EventArgs e)
         {
-            if (txtSigninIP.Text == "" || txtSigninPassword.Text == "" || txtSigninUsername.Text == "")
+            if (txtSigninIP.Text == "" || txtSigninPassword.Text == "" || txtSigninUsername.Text == "" || txtSigninPort.Text == "")
             {
                 MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            try
+            {
+                ipe = new IPEndPoint(IPAddress.Parse(txtSigninIP.Text), int.Parse(txtSigninPort.Text));
+                server = new TcpClient();
 
-            ipe = new IPEndPoint(IPAddress.Parse(txtSigninIP.Text), 2009);
-            server = new TcpClient();
+                server.Connect(ipe);
 
-            server.Connect(ipe);
+                streamReader = new StreamReader(server.GetStream());
+                streamWriter = new StreamWriter(server.GetStream());
 
-            streamReader = new StreamReader(server.GetStream());
-            streamWriter = new StreamWriter(server.GetStream());
-
-            var threadSign = new Thread(new ThreadStart(waitForSigninFeedback));
-            threadSign.IsBackground = true;
-            threadSign.Start();
+                var threadSign = new Thread(new ThreadStart(waitForSigninFeedback));
+                threadSign.IsBackground = true;
+                threadSign.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error 'Server not working' or 'Entering wrong fields' . Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void waitForSigninFeedback()
         {

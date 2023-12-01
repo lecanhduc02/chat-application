@@ -149,7 +149,7 @@ namespace Chat_app_Client
 
         private void receiveTheard()
         {
-            while(server != null && threadActive)
+            while (server != null && threadActive)
             {
                 try
                 {
@@ -165,7 +165,7 @@ namespace Chat_app_Client
                             Startup startup = JsonSerializer.Deserialize<Startup>(infoJson.content);
 
                             List<string> groups = JsonSerializer.Deserialize<List<String>>(startup.group);
-                            foreach(String group in groups)
+                            foreach (String group in groups)
                             {
                                 addDataInDataGridView(tblGroup, new string[] { group });
                             }
@@ -198,7 +198,7 @@ namespace Chat_app_Client
 
                                 if (ImageExtensions.Contains(bufferFile.extension.ToUpper()))
                                 {
-                                    new Thread(()=> Application.Run(new ImageView(bufferFile))).Start() ;
+                                    new Thread(() => Application.Run(new ImageView(bufferFile))).Start();
 
                                     AppendRichTextBox(bufferFile.sender, bufferFile.receiver, "Shared the " + bufferFile.extension + " file in ", @Environment.CurrentDirectory);
                                 }
@@ -250,9 +250,9 @@ namespace Chat_app_Client
                 //Username
                 rtbDialog.SelectionStart = rtbDialog.TextLength;
                 rtbDialog.SelectionLength = 0;
-                rtbDialog.SelectionColor = Color.Red;
+                rtbDialog.SelectionColor = Color.Blue;
                 rtbDialog.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, FontStyle.Bold);
-                rtbDialog.AppendText(sender + "<" + receiver + ">");
+                rtbDialog.AppendText(sender + " to [" + receiver + "]");
                 rtbDialog.SelectionColor = rtbDialog.ForeColor;
 
                 rtbDialog.AppendText(": ");
@@ -260,7 +260,7 @@ namespace Chat_app_Client
                 //Message
                 rtbDialog.SelectionStart = rtbDialog.TextLength;
                 rtbDialog.SelectionLength = 0;
-                rtbDialog.SelectionColor = Color.Green;
+                rtbDialog.SelectionColor = Color.Black;
                 rtbDialog.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, FontStyle.Regular);
                 rtbDialog.AppendText(message);
                 rtbDialog.SelectionColor = rtbDialog.ForeColor;
@@ -295,7 +295,7 @@ namespace Chat_app_Client
             {
                 dataGridView.Rows.Clear();
             }));
-            
+
         }
 
         private void addDataInDataGridView(DataGridView dataGridView, String[] array)
@@ -312,12 +312,13 @@ namespace Chat_app_Client
             streamWriter.Flush();
         }
 
+        // Icon Like
         private void btnLike_Click(object sender, EventArgs e)
         {
-            
+
             if (txtReceiver.Text == "")
             {
-                MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the client on the left to connect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -335,11 +336,12 @@ namespace Chat_app_Client
             txtMessage.Clear();
         }
 
+        // Icon Love
         private void btnLove_Click(object sender, EventArgs e)
         {
             if (txtReceiver.Text == "")
             {
-                MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the client on the left to connect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -349,7 +351,7 @@ namespace Chat_app_Client
                 return;
             }
 
-            Messages messages = new Messages(this.name, txtReceiver.Text, "🥰");
+            Messages messages = new Messages(this.name, txtReceiver.Text, "❤");
             String messageJson = JsonSerializer.Serialize(messages);
             Json json = new Json("MESSAGE", messageJson);
             sendJson(json);
@@ -357,11 +359,12 @@ namespace Chat_app_Client
             txtMessage.Clear();
         }
 
+        // Icon Laugh
         private void btnLaugh_Click(object sender, EventArgs e)
         {
             if (txtReceiver.Text == "")
             {
-                MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the client on the left to connect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -379,11 +382,12 @@ namespace Chat_app_Client
             txtMessage.Clear();
         }
 
+        // Icon Cry
         private void btnCry_Click(object sender, EventArgs e)
         {
             if (txtReceiver.Text == "")
             {
-                MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the client on the left to connect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -401,11 +405,12 @@ namespace Chat_app_Client
             txtMessage.Clear();
         }
 
+        // Icon Devil
         private void btnDevil_Click(object sender, EventArgs e)
         {
             if (txtReceiver.Text == "")
             {
-                MessageBox.Show("Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the client on the left to connect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
