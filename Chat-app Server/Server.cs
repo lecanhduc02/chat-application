@@ -176,11 +176,17 @@ namespace Chat_app_Server
                                 {
                                     createGroup(infoJson);
                                 }
-                                break;
+                                break; 
 							case "ADD_MEMBER":
 								if (infoJson.content != null)
 								{
 									addMember(infoJson);
+								}
+								break;
+							case "DELETE_MEMBER":
+								if (infoJson.content != null)
+								{
+									deleteMember(infoJson);
 								}
 								break;
 							case "DELETE_GROUP":
@@ -378,6 +384,28 @@ namespace Chat_app_Server
 				startupClient(CLIENT[key], key);
 			}
 		}
+        private void deleteMember(Json infoJson)
+        {
+			var group = JsonSerializer.Deserialize<Group>(infoJson.content);
+			string groupJson = File.ReadAllText("groups.json");
+			GROUP = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(groupJson);
+			if (GROUP.ContainsKey(group.name))
+			{
+				List<string> members = GROUP[group.name];
+				List<string> newMembers = group.members.Split(',').Select(x => x.Trim()).ToList();
+				foreach (var item in newMembers)
+				{
+					members.Remove(item);
+				}
+				GROUP[group.name] = members;
+			}
+
+			foreach (String key in CLIENT.Keys)
+			{
+				startupClient(CLIENT[key], key);
+			}
+		}
+		
 		private void reponseFile(Json infoJson, TcpClient client)
         {
             FileMessage fileMessage = JsonSerializer.Deserialize<FileMessage>(infoJson.content);

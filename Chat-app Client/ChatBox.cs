@@ -444,5 +444,10 @@ namespace Chat_app_Client
 		{
 			new Thread(() => Application.Run(new DeleteGroup(server))).Start();
 		}
+
+		private void btnDeleteMember_Click(object sender, EventArgs e)
+		{
+			new Thread(() => Application.Run(new DeleteMember(server))).Start();
+		}
 	}
 }

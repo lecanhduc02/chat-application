@@ -49,6 +49,7 @@
 			pictureBox1 = new PictureBox();
 			btnAddMember = new Button();
 			btnDeleteGroup = new Button();
+			btnDeleteMember = new Button();
 			((System.ComponentModel.ISupportInitialize)tblUser).BeginInit();
 			((System.ComponentModel.ISupportInitialize)tblGroup).BeginInit();
 			((System.ComponentModel.ISupportInitialize)btnPicture).BeginInit();
@@ -94,13 +95,13 @@
 			tblGroup.AllowUserToDeleteRows = false;
 			tblGroup.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			tblGroup.Columns.AddRange(new DataGridViewColumn[] { Group });
-			tblGroup.Location = new Point(14, 269);
+			tblGroup.Location = new Point(14, 243);
 			tblGroup.Margin = new Padding(3, 4, 3, 4);
 			tblGroup.Name = "tblGroup";
 			tblGroup.ReadOnly = true;
 			tblGroup.RowHeadersWidth = 51;
 			tblGroup.RowTemplate.Height = 25;
-			tblGroup.Size = new Size(174, 268);
+			tblGroup.Size = new Size(174, 241);
 			tblGroup.TabIndex = 3;
 			tblGroup.CellContentClick += tblGroup_CellContentClick;
 			// 
@@ -187,7 +188,7 @@
 			btnCreateGroup.FlatStyle = FlatStyle.Flat;
 			btnCreateGroup.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			btnCreateGroup.ForeColor = Color.Black;
-			btnCreateGroup.Location = new Point(14, 545);
+			btnCreateGroup.Location = new Point(14, 505);
 			btnCreateGroup.Margin = new Padding(3, 4, 3, 4);
 			btnCreateGroup.Name = "btnCreateGroup";
 			btnCreateGroup.Size = new Size(174, 32);
@@ -293,7 +294,7 @@
 			btnAddMember.FlatStyle = FlatStyle.Flat;
 			btnAddMember.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			btnAddMember.ForeColor = Color.Black;
-			btnAddMember.Location = new Point(12, 585);
+			btnAddMember.Location = new Point(12, 545);
 			btnAddMember.Margin = new Padding(3, 4, 3, 4);
 			btnAddMember.Name = "btnAddMember";
 			btnAddMember.Size = new Size(174, 32);
@@ -317,11 +318,27 @@
 			btnDeleteGroup.UseVisualStyleBackColor = false;
 			btnDeleteGroup.Click += btnDeleteGroup_Click;
 			// 
+			// btnDeleteMember
+			// 
+			btnDeleteMember.BackColor = Color.MediumSlateBlue;
+			btnDeleteMember.FlatStyle = FlatStyle.Flat;
+			btnDeleteMember.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			btnDeleteMember.ForeColor = Color.Black;
+			btnDeleteMember.Location = new Point(14, 585);
+			btnDeleteMember.Margin = new Padding(3, 4, 3, 4);
+			btnDeleteMember.Name = "btnDeleteMember";
+			btnDeleteMember.Size = new Size(174, 32);
+			btnDeleteMember.TabIndex = 33;
+			btnDeleteMember.Text = "Delete Member";
+			btnDeleteMember.UseVisualStyleBackColor = false;
+			btnDeleteMember.Click += btnDeleteMember_Click;
+			// 
 			// ChatBox
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(914, 663);
+			Controls.Add(btnDeleteMember);
 			Controls.Add(btnDeleteGroup);
 			Controls.Add(btnAddMember);
 			Controls.Add(pictureBox1);
@@ -381,5 +398,6 @@
 		private PictureBox pictureBox1;
 		private Button btnAddMember;
 		private Button btnDeleteGroup;
+		private Button btnDeleteMember;
 	}
 }
