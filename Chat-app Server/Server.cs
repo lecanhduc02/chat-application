@@ -20,8 +20,7 @@ namespace Chat_app_Server
         private Dictionary<String, String> USER;
         private Dictionary<String, List<String>> GROUP;
         private Dictionary<String, TcpClient> CLIENT;
-
-        public Server()
+		public Server()
         {
 			CLIENT = new Dictionary<String, TcpClient>();
 			LoadData();
@@ -39,17 +38,20 @@ namespace Chat_app_Server
 
             string groupJson = JsonSerializer.Serialize(GROUP);
             File.WriteAllText("groups.json", groupJson);
-        }
+
+		}
         private void LoadData()
         {
-            string userJson = File.ReadAllText("users.json");
+
+			string userJson = File.ReadAllText("users.json");
 
             USER = JsonSerializer.Deserialize<Dictionary<string, string>>(userJson);
 
             string groupJson = File.ReadAllText("groups.json");
 
             GROUP = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(groupJson);
-        }
+
+		}
         private void Server_Load(object sender, EventArgs e)
         {
             String IP = null;
@@ -175,7 +177,19 @@ namespace Chat_app_Server
                                     createGroup(infoJson);
                                 }
                                 break;
-                            case "FILE":
+							case "ADD_MEMBER":
+								if (infoJson.content != null)
+								{
+									addMember(infoJson);
+								}
+								break;
+							case "DELETE_GROUP":
+								if (infoJson.content != null)
+								{
+									deleteGroup(infoJson);
+								}
+								break;
+							case "FILE":
                                 if (infoJson.content != null)
                                 {
                                     reponseFile(infoJson, client);
@@ -303,7 +317,7 @@ namespace Chat_app_Server
                     }
                 }
             }
-        }
+		}
 
         private void createGroup(Json infoJson)
         {
@@ -326,7 +340,45 @@ namespace Chat_app_Server
             }
         }
 
-        private void reponseFile(Json infoJson, TcpClient client)
+		private void addMember(Json infoJson)
+		{
+			var group = JsonSerializer.Deserialize<Group>(infoJson.content);
+			string groupJson = File.ReadAllText("groups.json");
+			GROUP = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(groupJson);
+			if (GROUP.ContainsKey(group.name))
+			{
+				List<string> members = GROUP[group.name];
+				List<string> newMembers = group.members.Split(',').Select(x => x.Trim()).ToList();
+                foreach(var item in newMembers)
+                {
+					members.Add(item);
+				}
+				GROUP[group.name] = members;
+			}
+
+			foreach (String key in CLIENT.Keys)
+			{
+				startupClient(CLIENT[key], key);
+			}
+		}
+        private void deleteGroup(Json infoJson)
+        {
+			var group = JsonSerializer.Deserialize<Group>(infoJson.content);
+			string groupJson = File.ReadAllText("groups.json");
+			GROUP = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(groupJson);
+			if (GROUP.ContainsKey(group.name))
+			{
+				List<string> members = GROUP[group.name];
+		        members.Clear();
+                GROUP.Remove(group.name);
+			}
+
+			foreach (String key in CLIENT.Keys)
+			{
+				startupClient(CLIENT[key], key);
+			}
+		}
+		private void reponseFile(Json infoJson, TcpClient client)
         {
             FileMessage fileMessage = JsonSerializer.Deserialize<FileMessage>(infoJson.content);
 
