@@ -1,5 +1,6 @@
 using Communicator;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -22,9 +23,33 @@ namespace Chat_app_Server
 
         public Server()
         {
-            InitializeComponent();
-        }
+			CLIENT = new Dictionary<String, TcpClient>();
+			LoadData();
 
+			InitializeComponent();
+	
+		}
+        private void SaveData()
+        {
+            // serialize dictionary ra json string
+            string userJson = JsonSerializer.Serialize(USER);
+
+            // ghi ra file
+            File.WriteAllText("users.json", userJson);
+
+            string groupJson = JsonSerializer.Serialize(GROUP);
+            File.WriteAllText("groups.json", groupJson);
+        }
+        private void LoadData()
+        {
+            string userJson = File.ReadAllText("users.json");
+
+            USER = JsonSerializer.Deserialize<Dictionary<string, string>>(userJson);
+
+            string groupJson = File.ReadAllText("groups.json");
+
+            GROUP = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(groupJson);
+        }
         private void Server_Load(object sender, EventArgs e)
         {
             String IP = null;
@@ -44,7 +69,6 @@ namespace Chat_app_Server
             txtIP.Text = null;
             txtPort.Text = "8800";
 
-            userInitialize();
         }
 
         //Find ID
@@ -65,33 +89,6 @@ namespace Chat_app_Server
                 return;
             }
             txtIP.Text = IP;
-        }
-        private void userInitialize()
-        {
-            USER = new Dictionary<String, String>();
-            GROUP = new Dictionary<String, List<String>>();
-            CLIENT = new Dictionary<String, TcpClient>();
-
-            for (char uName = 'A'; uName <= 'Z'; uName++)
-            {
-                String pass = "123";
-                USER.Add(uName.ToString(), pass);
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                List<string> groupUser = new List<string>();
-                for (byte j = 0; j < 3; j++)
-                {
-                    char u = (Char)('A' + 3 * i + j);
-                    groupUser.Add(u.ToString());
-                }
-                if (!groupUser.Contains("A"))
-                {
-                    groupUser.Add("A");
-                }
-                GROUP.Add("Group " + i.ToString(), groupUser);
-            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -401,7 +398,8 @@ namespace Chat_app_Server
 
         private void AppendRichTextBox(string value)
         {
-            if (InvokeRequired)
+			SaveData();
+			if (InvokeRequired)
             {
                 this.Invoke(new Action<string>(AppendRichTextBox), new object[] { value });
                 return;
@@ -420,7 +418,8 @@ namespace Chat_app_Server
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (CLIENT.Count() > 0)
+			SaveData();
+			if (CLIENT.Count() > 0)
             {
                 MessageBox.Show("The server has " + CLIENT.Count + " user(s) logged in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
